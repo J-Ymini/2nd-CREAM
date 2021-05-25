@@ -1,0 +1,11 @@
+{
+  "order_list": [
+    { "order_date": "5/1", "price": 1000000 },
+    { "order_date": "5/2", "price": 3000000 },
+    { "order_date": "5/3", "price": 4000000 },
+    { "order_date": "5/4", "price": 4500000 },
+    { "order_date": "5/5", "price": 3200000 },
+    { "order_date": "5/6", "price": 1700000 },
+    { "order_date": "5/7", "price": 8000000 }
+  ]
+}

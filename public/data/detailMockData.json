@@ -1,0 +1,17 @@
+{
+  "product_information": {
+    "english_name": "jordan",
+    "id": 1,
+    "korean_name": "조던",
+    "lately_order": "200000.00",
+    "main_image": "/images/test1.png",
+    "sub_image": "/images/test2.png",
+    "option": [
+      { "buy_price": null, "sell_price": null, "size": "250" },
+      { "buy_price": "250000.00", "sell_price": null, "size": "260" },
+      { "buy_price": "254000.00", "sell_price": "154000.0", "size": "270" },
+      { "buy_price": null, "sell_price": null, "size": "280" },
+      { "buy_price": null, "sell_price": null, "size": "290" }
+    ]
+  }
+}

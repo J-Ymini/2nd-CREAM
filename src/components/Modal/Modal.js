@@ -3,14 +3,14 @@ import Styled from 'styled-components';
 
 export default function Modal({ on, setOn, children }) {
   return (
-    <ModalStyle display={on}>
+    <ModalStyle displayOn={on}>
       <ModalContentStyle className="modalContent">{children}</ModalContentStyle>
     </ModalStyle>
   );
 }
 
 const ModalStyle = Styled.section`
-  display: ${props => (props.display ? 'block' : 'none')};
+  display: ${props => (props.displayOn ? 'block' : 'none')};
   position: fixed;
   left: 0;
   top: 0;
@@ -21,7 +21,7 @@ const ModalStyle = Styled.section`
 `;
 
 const ModalContentStyle = Styled.div`
-  ${props => props.theme.flexbox('column')}
+  ${props => props.theme.flexbox('column', 'flex-start', 'center')}
   position: relative;
   width: 450px;
   min-height: 530px;
