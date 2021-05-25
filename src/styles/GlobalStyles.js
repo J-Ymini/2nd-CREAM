@@ -9,6 +9,7 @@ ${reset}
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 button,
 input {
   background-color: transparent;
@@ -16,15 +17,16 @@ input {
   border: none;
   font-size: inherit;
 }
+
 ul,li {
   list-style: none;
   
 }
+
 a {
   color: inherit;
   text-decoration: none;
 }
-
 `;
 
 export default GlobalStyles;
