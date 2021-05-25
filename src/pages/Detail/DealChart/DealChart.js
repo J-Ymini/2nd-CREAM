@@ -47,8 +47,8 @@ export default function DealChart({ chartData }) {
           position: 'right',
           ticks: {
             min: 0,
-            max: 500000,
-            stepSize: 100000,
+            max: 10000000,
+            stepSize: 2000000,
             fontColor: '#b2b2b2',
           },
           gridLines: {

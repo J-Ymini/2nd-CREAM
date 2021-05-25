@@ -1,4 +1,4 @@
-const BASE_URL = 'http://10.58.3.203:8000';
+const BASE_URL = 'http://3.35.234.195:8000';
 const API_URLS = {
   LOGIN: `${BASE_URL}/users/kakao`,
   MYPAGE: `${BASE_URL}/users/mypage`,

@@ -8,6 +8,7 @@ import DealChart from './DealChart/DealChart';
 import Modal from '../../components/Modal/Modal';
 import RecentDealModal from './ModalContents/RecentDealModal';
 import BidHistoryModal from './ModalContents/BidHistoryModal';
+import ProductBox from './Util/ProductBox';
 import API_URLS from '../../config';
 
 export default function Detail() {
@@ -106,6 +107,7 @@ export default function Detail() {
           </Modal>
         </div>
       </ProductArea>
+      <ProductBox />
     </Main>
   );
 }

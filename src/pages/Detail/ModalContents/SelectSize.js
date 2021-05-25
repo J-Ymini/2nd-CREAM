@@ -16,7 +16,11 @@ export default function SelectSize({ on, onSet, sizePrice, children }) {
             if (Object.keys(el)[0] === 'buy_price') {
               return (
                 <Link
-                  to={`/products/buypage/${routeMatchId}?size=${el.size}`}
+                  to={
+                    localStorage.getItem('cream_token')
+                      ? `/products/buypage/${routeMatchId}?size=${el.size}`
+                      : '/login'
+                  }
                   key={index}
                 >
                   <div className="sizeBtn">
@@ -39,7 +43,11 @@ export default function SelectSize({ on, onSet, sizePrice, children }) {
             } else if (Object.keys(el)[0] === 'sell_price') {
               return (
                 <Link
-                  to={`/products/sellpage/${routeMatchId}?size=${el.size}`}
+                  to={
+                    localStorage.getItem('cream_token')
+                      ? `/products/sellpage/${routeMatchId}?size=${el.size}`
+                      : '/login'
+                  }
                   key={index}
                 >
                   <div className="sizeBtn">
