@@ -1,0 +1,22 @@
+{
+  "result": [
+    {
+      "buy_biddings": {
+        "buy_all": 5,
+        "buy_finished": 0,
+        "buy_proceeding": 5
+      },
+      "sell_biddings": {
+        "sell_all": 5,
+        "sell_finished": 0,
+        "sell_proceeding": 5
+      },
+      "user_information": {
+        "user_email": "dydalsdl14@naver.com",
+        "user_id": 2,
+        "user_nickname": "전용민",
+        "user_point": 50000000
+      }
+    }
+  ]
+}
