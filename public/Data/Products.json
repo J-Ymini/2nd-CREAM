@@ -1,0 +1,348 @@
+{
+  "result": [
+    [
+      {
+        "brand_information": {
+          "brand_id": 1,
+          "brand_logo_url": "https://i.postimg.cc/j5STmz4x/bear.png",
+          "brand_name": "Nikee"
+        },
+        "collection_id": 1,
+        "collection_name": "bio jae",
+        "product_english_name": "Perey Lace up Sneakers Optic White",
+        "product_id": 1,
+        "product_main_image": ["https://i.postimg.cc/TYppDGt9/shoes1.png"],
+        "product_korean_name": "정렬이 잘되는지 보기위한 1번 상품",
+        "product_limited": true,
+        "product_options": [
+          {
+            "buy_price": null,
+            "sell_price": [12000],
+            "size": "250"
+          },
+          {
+            "buy_price": null,
+            "sell_price": [10000],
+            "size": "260"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "270"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "280"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "290"
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "brand_information": {
+          "brand_id": 1,
+          "brand_logo_url": "https://i.postimg.cc/j5STmz4x/bear.png",
+          "brand_name": "Nikee"
+        },
+        "collection_id": 1,
+        "collection_name": "bio jae",
+        "product_english_name": "Perey Lace up Sneakers Optic White",
+        "product_id": 2,
+        "product_main_image": ["https://i.postimg.cc/TYppDGt9/shoes1.png"],
+        "product_korean_name": "정렬이 잘되는지 보기위한 2번 상품",
+        "product_limited": true,
+        "product_options": [
+          {
+            "buy_price": null,
+            "sell_price": [11000],
+            "size": "250"
+          },
+          {
+            "buy_price": null,
+            "sell_price": [7000],
+            "size": "260"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "270"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "280"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "290"
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "brand_information": {
+          "brand_id": 1,
+          "brand_logo_url": "https://i.postimg.cc/j5STmz4x/bear.png",
+          "brand_name": "Nikee"
+        },
+        "collection_id": 1,
+        "collection_name": "bio jae",
+        "product_english_name": "Perey Lace up Sneakers Optic White",
+        "product_id": 3,
+        "product_main_image": ["https://i.postimg.cc/TYppDGt9/shoes1.png"],
+        "product_korean_name": "정렬이 잘되는지 보기위한 3번 상품",
+        "product_limited": true,
+        "product_options": [
+          {
+            "buy_price": [10000],
+            "sell_price": null,
+            "size": "250"
+          },
+          {
+            "buy_price": [15000],
+            "sell_price": null,
+            "size": "260"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "270"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "280"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "290"
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "brand_information": {
+          "brand_id": 1,
+          "brand_logo_url": "https://i.postimg.cc/j5STmz4x/bear.png",
+          "brand_name": "Nikee"
+        },
+        "collection_id": 1,
+        "collection_name": "bio jae",
+        "product_english_name": "Perey Lace up Sneakers Optic White",
+        "product_id": 4,
+        "product_main_image": ["https://i.postimg.cc/TYppDGt9/shoes1.png"],
+        "product_korean_name": "정렬이 잘되는지 보기위한 4번 상품",
+        "product_limited": true,
+        "product_options": [
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "250"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "260"
+          },
+          {
+            "buy_price": [50000],
+            "sell_price": null,
+            "size": "270"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "280"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "290"
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "brand_information": {
+          "brand_id": 1,
+          "brand_logo_url": "https://i.postimg.cc/j5STmz4x/bear.png",
+          "brand_name": "Nikee"
+        },
+        "collection_id": 1,
+        "collection_name": "bio jae",
+        "product_english_name": "Perey Lace up Sneakers Optic White",
+        "product_id": 5,
+        "product_main_image": ["https://i.postimg.cc/TYppDGt9/shoes1.png"],
+        "product_korean_name": "정렬이 잘되는지 보기위한 5번 상품",
+        "product_limited": true,
+        "product_options": [
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "250"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "260"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "270"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "280"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "290"
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "brand_information": {
+          "brand_id": 1,
+          "brand_logo_url": "https://i.postimg.cc/j5STmz4x/bear.png",
+          "brand_name": "Nikee"
+        },
+        "collection_id": 1,
+        "collection_name": "bio jae",
+        "product_english_name": "Perey Lace up Sneakers Optic White",
+        "product_id": 6,
+        "product_main_image": ["https://i.postimg.cc/TYppDGt9/shoes1.png"],
+        "product_korean_name": "정렬이 잘되는지 보기위한 6번 상품",
+        "product_limited": true,
+        "product_options": [
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "250"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "260"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "270"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "280"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "290"
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "brand_information": {
+          "brand_id": 1,
+          "brand_logo_url": "https://i.postimg.cc/j5STmz4x/bear.png",
+          "brand_name": "Nikee"
+        },
+        "collection_id": 1,
+        "collection_name": "bio jae",
+        "product_english_name": "Perey Lace up Sneakers Optic White",
+        "product_id": 7,
+        "product_main_image": ["https://i.postimg.cc/TYppDGt9/shoes1.png"],
+        "product_korean_name": "정렬이 잘되는지 보기위한 7번 상품",
+        "product_limited": true,
+        "product_options": [
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "250"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "260"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "270"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "280"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "290"
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "brand_information": {
+          "brand_id": 1,
+          "brand_logo_url": "https://i.postimg.cc/j5STmz4x/bear.png",
+          "brand_name": "Nikee"
+        },
+        "collection_id": 1,
+        "collection_name": "bio jae",
+        "product_english_name": "Perey Lace up Sneakers Optic White",
+        "product_id": 8,
+        "product_main_image": ["https://i.postimg.cc/TYppDGt9/shoes1.png"],
+        "product_korean_name": "정렬이 잘되는지 보기위한 8번 상품",
+        "product_limited": true,
+        "product_options": [
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "250"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "260"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "270"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "280"
+          },
+          {
+            "buy_price": null,
+            "sell_price": null,
+            "size": "290"
+          }
+        ]
+      }
+    ]
+  ]
+}
