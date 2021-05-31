@@ -47,7 +47,7 @@ export default function ProductInfo() {
   };
 
   const pricePercentage = () => {
-    if (percentage.length > 0) {
+    if (percentage.length > 1) {
       if (percentage[0].price >= percentage[1].price) {
         percentageResult.raise = 'up';
         percentageResult.value = percentage[0].price - percentage[1].price;

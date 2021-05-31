@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Nav = () => {
+  const [on, setOn] = useState(false);
+
+  const handleKakaoLogout = () => {
+    if (localStorage.getItem('cream_token')) {
+      localStorage.removeItem('cream_token');
+      alert('로그아웃되었습니다.');
+      setOn(!on);
+    } else {
+      alert('로그인 상태가 아닙니다.');
+    }
+  };
+
   return (
     <NavStyle>
       <Link to="/products">
@@ -15,7 +27,9 @@ const Nav = () => {
         {localStorage.getItem('cream_token') ? (
           <>
             <Link to="/my">마이 페이지</Link>
-            <Link to="/products">로그아웃</Link>
+            <Link to="/products" onClick={handleKakaoLogout}>
+              로그아웃
+            </Link>
           </>
         ) : (
           <Link to="/login">로그인</Link>

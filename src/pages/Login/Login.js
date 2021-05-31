@@ -28,7 +28,7 @@ function Login() {
               Kakao.Auth.logout();
               alert('로그인에 성공하셨습니다.');
               localStorage.setItem('cream_token', res['cream_token']);
-              history.push('/');
+              history.push('/products');
             }
           });
       },

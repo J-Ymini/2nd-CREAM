@@ -6,43 +6,43 @@ import API_URLS from '../../config';
 
 export default function BuyPage(props) {
   const [wishPrice, setWishPrice] = useState(0);
-  const [purchaseBidding, setPurchaseBidding] = useState(true);
-  const [purchaseImmediately, setPurchaseImmediately] = useState(false);
-  const [buyInformation, setBuyInformation] = useState([]);
-  const [buyState, setBuyState] = useState('');
+  const [sellBidding, setSellBidding] = useState(true);
+  const [sellImmediately, setSellImmediately] = useState(false);
+  const [sellInformation, setSellInformation] = useState([]);
+  const [sellState, setSellState] = useState('');
   const inputElement = useRef();
   const history = useHistory();
 
   const goToFirstTap = () => {
-    setPurchaseBidding(true);
-    setPurchaseImmediately(false);
+    setSellBidding(true);
+    setSellImmediately(false);
     setWishPrice(0);
-    setBuyState('bidding');
+    setSellState('bidding');
   };
 
   const goToSecondTap = () => {
-    setPurchaseBidding(false);
-    setPurchaseImmediately(true);
+    setSellBidding(false);
+    setSellImmediately(true);
     setWishPrice(
-      Number(buyInformation['product_information']?.['buying_price'])
+      Number(sellInformation['product_information']?.['selling_price'])
     );
-    setBuyState('buying');
+    setSellState('selling');
   };
 
   const setPrice = () => {
     if (
-      inputElement.current.value >
-      Number(buyInformation['product_information']?.['buying_price'])
+      inputElement.current.value <
+      Number(sellInformation['product_information']?.['selling_price'])
     ) {
-      setPurchaseBidding(false);
-      setPurchaseImmediately(true);
+      setSellBidding(false);
+      setSellImmediately(true);
       setWishPrice(
-        Number(buyInformation['product_information']?.['buying_price'])
+        Number(sellInformation['product_information']?.['selling_price'])
       );
-      setBuyState('buying');
+      setSellState('selling');
     } else {
       setWishPrice(inputElement.current.value);
-      setBuyState('bidding');
+      setSellState('bidding');
     }
   };
 
@@ -50,62 +50,58 @@ export default function BuyPage(props) {
     e.charCode === 13 && setPrice();
   };
 
-  const deciseBuy = () => {
+  const deciseSell = () => {
     const { id } = props.match.params;
     if (wishPrice === 0) {
       alert('가격을 입력하셔야 합니다.');
     } else {
-      fetch(`${API_URLS['BUY_PAGE']}/${id}?buy=${buyState}`, {
+      fetch(`${API_URLS['SELL_PAGE']}/${id}?sell=${sellState}`, {
         method: 'POST',
         headers: {
           Authorization: localStorage.getItem('cream_token'),
         },
         body: JSON.stringify({
           price: wishPrice,
-          selling_id: buyInformation['product_information']?.['selling_id'],
-          sell_user: buyInformation['product_information']?.['selling_user'],
-          size: buyInformation['product_information']?.size,
+          buying_id: sellInformation['product_information']?.['buying_id'],
+          buy_user: sellInformation['product_information']?.['buying_user'],
+          size: sellInformation['product_information']?.size,
         }),
-      }).then(res => {
-        if (res.status === 400) {
-          alert('금액이 부족합니다. 충전 후 이용 바랍니다.');
-        } else {
-          if (buyState === 'buying') {
-            alert('구매가 완료되었습니다.');
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (sellState === 'selling') {
+            alert('판매가 완료되었습니다.');
             history.push('/');
-          } else {
-            alert('구매 입찰이 완료되었습니다.');
+          } else if (sellState === 'bidding') {
+            alert('판매 입찰이 완료되었습니다.');
             history.push('/');
           }
-        }
-      });
+        });
     }
   };
 
   useEffect(() => {
     const { id } = props.match.params;
     const size = props.location.search.split('=')[1];
-    fetch(`${API_URLS['BUY_PAGE']}/${id}?size=${size}`, {
+    fetch(`${API_URLS['SELL_PAGE']}/${id}?size=${size}`, {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('cream_token'),
       },
     })
       .then(res => res.json())
-      .then(res => {
-        setBuyInformation(res);
-      });
+      .then(res => setSellInformation(res));
   }, []);
 
   const PRICE_LISTS = [
     {
       '즉시 구매가': Number(
-        buyInformation['product_information']?.['buying_price']
+        sellInformation['product_information']?.['buying_price']
       ).toLocaleString(),
     },
     {
       '즉시 판매가': Number(
-        buyInformation['product_information']?.['selling_price']
+        sellInformation['product_information']?.['selling_price']
       ).toLocaleString(),
     },
   ];
@@ -113,10 +109,10 @@ export default function BuyPage(props) {
   return (
     <Container>
       <ProductThumbnail
-        eng_title={buyInformation['product_information']?.['english_name']}
-        kor_title={buyInformation['product_information']?.['korean_name']}
-        size={buyInformation['product_information']?.size}
-        img={buyInformation['product_information']?.image}
+        eng_title={sellInformation['product_information']?.['english_name']}
+        kor_title={sellInformation['product_information']?.['korean_name']}
+        size={sellInformation['product_information']?.size}
+        img={sellInformation['product_information']?.image}
       />
       <ProductInformation>
         <ProductPriceInformation>
@@ -132,31 +128,25 @@ export default function BuyPage(props) {
             })}
           </PriceList>
           <TapList>
-            <FirstTabBtn
-              onClick={goToFirstTap}
-              purchaseBidding={purchaseBidding}
-            >
-              구매 입찰
-            </FirstTabBtn>
-            <SecondTabBtn
-              onClick={goToSecondTap}
-              purchaseImmediately={purchaseImmediately}
-            >
-              즉시 구매
-            </SecondTabBtn>
+            <Button1 onClick={goToFirstTap} sellBidding={sellBidding}>
+              판매 입찰
+            </Button1>
+            <Button2 onClick={goToSecondTap} sellImmediately={sellImmediately}>
+              즉시 판매
+            </Button2>
           </TapList>
-          {purchaseBidding && (
+          {sellBidding && (
             <>
               <UserWishPrice inputElement={inputElement}>
-                <Label>구매 희망가</Label>
+                <Label>판매 희망가</Label>
                 <PriceInput>
                   <WishPriceInput
                     type="number"
-                    placeholder="구매 희망가 입력"
+                    placeholder="판매 희망가 입력"
                     required
-                    ref={inputElement}
                     onBlur={setPrice}
                     onKeyPress={pressEnter}
+                    ref={inputElement}
                   />
                   <span>원</span>
                 </PriceInput>
@@ -168,24 +158,24 @@ export default function BuyPage(props) {
                 </CheckPrice>
                 <DeliveryPrice>
                   <div>배송비</div>
-                  <div>-</div>
+                  <div>선불 &middot; 판매자 부담</div>
                 </DeliveryPrice>
-                <Label>총 결제금액</Label>
+                <Label className>총 정산금액</Label>
                 <TotalBuyPrice>
-                  <span>{Number(wishPrice).toLocaleString()}</span>
+                  <span>{Number(wishPrice.toLocaleString())}</span>
                   <span>원</span>
                 </TotalBuyPrice>
               </TotalPrice>
             </>
           )}
-          {purchaseImmediately && (
+          {sellImmediately && (
             <>
               <UserWishPrice>
-                <Label>즉시 구매가</Label>
+                <Label>즉시 판매가</Label>
                 <PriceInput>
                   <WishPriceInputFixed>
                     {Number(
-                      buyInformation['product_information']?.['buying_price']
+                      sellInformation['product_information']?.['selling_price']
                     ).toLocaleString()}
                   </WishPriceInputFixed>
                   <span>원</span>
@@ -198,13 +188,13 @@ export default function BuyPage(props) {
                 </CheckPrice>
                 <DeliveryPrice>
                   <div>배송비</div>
-                  <div>-</div>
+                  <div>선불 &middot; 판매자 부담</div>
                 </DeliveryPrice>
-                <Label>총 결제금액</Label>
+                <Label className="totalPrice">총 정산금액</Label>
                 <TotalBuyPrice>
                   <span>
                     {Number(
-                      buyInformation['product_information']?.['buying_price']
+                      sellInformation['product_information']?.['selling_price']
                     ).toLocaleString()}
                   </span>
                   <span>원</span>
@@ -212,7 +202,7 @@ export default function BuyPage(props) {
               </TotalPrice>
             </>
           )}
-          <Decision onClick={deciseBuy}>구매 결정</Decision>
+          <Decision onClick={deciseSell}>판매 결정</Decision>
         </ProductPriceInformation>
       </ProductInformation>
     </Container>
@@ -252,10 +242,10 @@ const TapList = styled.div`
   background-color: #f4f4f4;
 `;
 
-const FirstTabBtn = styled.button`
+const Button1 = styled.button`
   padding: 10px 100px;
-  color: ${props => (props.purchaseBidding ? 'white' : 'gray')};
-  background-color: ${props => (props.purchaseBidding ? '#ef6253' : '#f4f4f4')};
+  color: ${props => (props.sellBidding ? 'white' : 'gray')};
+  background-color: ${props => (props.sellBidding ? '#41b979' : '#f4f4f4')};
   border-radius: 12px;
   font-size: 18px;
   font-weight: bold;
@@ -271,10 +261,9 @@ const FirstTabBtn = styled.button`
   }
 `;
 
-const SecondTabBtn = styled(FirstTabBtn.withComponent('button'))`
-  color: ${props => (props.purchaseImmediately ? 'white' : 'gray')};
-  background-color: ${props =>
-    props.purchaseImmediately ? '#ef6253' : '#f4f4f4'};
+const Button2 = styled(Button1.withComponent('button'))`
+  color: ${props => (props.sellImmediately ? 'white' : 'gray')};
+  background-color: ${props => (props.sellImmediately ? '#41b979' : '#f4f4f4')};
 `;
 
 const PriceInput = styled.div`
@@ -345,7 +334,7 @@ const Decision = styled.button`
   width: 100%;
   color: white;
   border-radius: 12px;
-  background-color: #ef6253;
+  background-color: #41b979;
   font-size: 18px;
   font-weight: bold;
   transition: all 0.5s;
