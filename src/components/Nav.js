@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Nav = () => {
   const [on, setOn] = useState(false);
+  const location = useLocation();
 
   const handleKakaoLogout = () => {
     if (localStorage.getItem('cream_token')) {
@@ -15,26 +16,31 @@ const Nav = () => {
     }
   };
 
+  console.log(location.pathname);
   return (
     <NavStyle>
-      <Link to="/products">
-        <TitleLogo alt="main title logo" src="/images/nav_logo.png" />
-      </Link>
-      <NavSearchInput>
-        <i class="fas fa-search"></i>
-      </NavSearchInput>
-      <NavLinkContainer>
-        {localStorage.getItem('cream_token') ? (
-          <>
-            <Link to="/my">마이 페이지</Link>
-            <Link to="/products" onClick={handleKakaoLogout}>
-              로그아웃
-            </Link>
-          </>
-        ) : (
-          <Link to="/login">로그인</Link>
-        )}
-      </NavLinkContainer>
+      {location.pathname !== '/login' && (
+        <>
+          <Link to="/products">
+            <TitleLogo alt="main title logo" src="/images/nav_logo.png" />
+          </Link>
+          <NavSearchInput>
+            <i class="fas fa-search"></i>
+          </NavSearchInput>
+          <NavLinkContainer>
+            {localStorage.getItem('cream_token') ? (
+              <>
+                <Link to="/my">마이 페이지</Link>
+                <Link to="/products" onClick={handleKakaoLogout}>
+                  로그아웃
+                </Link>
+              </>
+            ) : (
+              <Link to="/login">로그인</Link>
+            )}
+          </NavLinkContainer>
+        </>
+      )}
     </NavStyle>
   );
 };

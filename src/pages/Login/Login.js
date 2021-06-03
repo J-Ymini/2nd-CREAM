@@ -7,9 +7,6 @@ import API_URLS from '../../config';
 function Login() {
   const { Kakao } = window;
   const history = useHistory();
-  useEffect(() => {
-    Kakao.init('db017fd8a2487a8a7a4cf4e615f3b53d');
-  }, []);
 
   const handleKakaoLogin = e => {
     e.preventDefault();

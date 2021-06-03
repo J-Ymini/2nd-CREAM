@@ -72,10 +72,10 @@ export default function BuyPage(props) {
         } else {
           if (buyState === 'buying') {
             alert('구매가 완료되었습니다.');
-            history.push('/');
+            history.push('/my');
           } else {
             alert('구매 입찰이 완료되었습니다.');
-            history.push('/');
+            history.push('/my');
           }
         }
       });

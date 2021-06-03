@@ -71,10 +71,10 @@ export default function BuyPage(props) {
         .then(res => {
           if (sellState === 'selling') {
             alert('판매가 완료되었습니다.');
-            history.push('/');
+            history.push('/my');
           } else if (sellState === 'bidding') {
             alert('판매 입찰이 완료되었습니다.');
-            history.push('/');
+            history.push('/my');
           }
         });
     }
@@ -162,7 +162,7 @@ export default function BuyPage(props) {
                 </DeliveryPrice>
                 <Label className>총 정산금액</Label>
                 <TotalBuyPrice>
-                  <span>{Number(wishPrice.toLocaleString())}</span>
+                  <span>{Number(wishPrice).toLocaleString()}</span>
                   <span>원</span>
                 </TotalBuyPrice>
               </TotalPrice>
