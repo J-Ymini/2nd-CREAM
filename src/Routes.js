@@ -7,6 +7,7 @@ import Detail from './pages/Detail/Detail';
 import BuyPage from './pages/BuyPage/BuyPage';
 import Nav from './components/Nav';
 import SellPage from './pages/SellPage/SellPage';
+import Footer from './components/Footer/Footer';
 
 class Routes extends Component {
   render() {
@@ -21,6 +22,7 @@ class Routes extends Component {
           <Route exact path="/products/buypage/:id" component={BuyPage} />
           <Route exact path="/products/sellpage/:id" component={SellPage} />
         </Switch>
+        <Footer />
       </Router>
     );
   }
