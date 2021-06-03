@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function ProductInfo(props) {
@@ -8,9 +9,15 @@ export default function ProductInfo(props) {
   const productName = productInfo[0].product_korean_name;
   const highestBuyPrice = productInfo[0].product_options[0].buy_price;
   const lowestSellPrice = productInfo[0].product_options[0].sell_price;
+  const history = useHistory();
+
+  const goToPruductDetail = e => {
+    e.preventDefault();
+    history.push(`/products/detail/${productInfo[0].product_id}`);
+  };
 
   return (
-    <ProductInfoStyle>
+    <ProductInfoStyle onClick={goToPruductDetail}>
       <ProductImageBackground>
         <ProductImage src={productImage} />
       </ProductImageBackground>
@@ -61,6 +68,7 @@ const ProductInfoStyle = styled.div`
   padding-left: 10px;
   display: inline-block;
   width: 25%;
+  cursor: pointer;
 `;
 
 const ProductImageBackground = styled.div`
