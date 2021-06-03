@@ -1,10 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 import Styled from 'styled-components';
 
-export default function Modal({ on, setOn, children }) {
+export default function Modal({ on, setOn, children, navSearch }) {
   return (
     <ModalStyle displayOn={on}>
-      <ModalContentStyle className="modalContent">{children}</ModalContentStyle>
+      {navSearch ? (
+        <NavSearchModal>{children}</NavSearchModal>
+      ) : (
+        <ModalContentStyle className="modalContent">
+          {children}
+        </ModalContentStyle>
+      )}
     </ModalStyle>
   );
 }
@@ -28,5 +35,11 @@ const ModalContentStyle = Styled.div`
   margin: 10% auto;
   padding: 25px 28px;
   border-radius: 20px;
+  background-color: #fff;
+`;
+
+const NavSearchModal = styled.div`
+  position: fixed;
+  width: 100%;
   background-color: #fff;
 `;

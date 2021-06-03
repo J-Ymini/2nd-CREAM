@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Nav from '../../components/Nav';
 import TypeBox from './TypeBox';
 import ProductInfo from '../../components/ProductInfo';
 import MainTopBanner from '../../pages/Main/MainTopBanner/Maintopbanner';
 import API_URLS from '../../config';
 
-export default function Main() {
+export default function Main(props) {
   const [productList, setproductList] = useState([]);
   const [productfilters, setProductFilters] = useState({
     brand_id: [],
@@ -32,6 +31,18 @@ export default function Main() {
   useEffect(() => {
     fetchByFilterQuery();
   }, [productfilters]);
+
+  useEffect(() => {
+    fetch(`${API_URLS.LIST_PAGE}${props.location.search}`)
+      .then(result => result.json())
+      .then(ProductListData => {
+        const sortedProductList = sortProductList(
+          SortTypeState,
+          ProductListData.result
+        );
+        setproductList(sortedProductList);
+      });
+  }, [props.location.search]);
 
   const makeFilterQuery = productfilters => {
     let query = '';
