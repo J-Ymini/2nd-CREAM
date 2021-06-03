@@ -22,6 +22,9 @@ export default function Detail() {
   const [onBidHistoryModal, setOnBidHistoryModal] = useState(false);
   const routeMatchID = useRouteMatch().params.id;
 
+  const weekChart = [];
+  const monthChart = [];
+
   useEffect(() => {
     fetch(`${API_URLS.DETAIL}/${routeMatchID}/order?term=week`)
       // fetch('/data/chartData.json')
@@ -44,6 +47,18 @@ export default function Detail() {
       .then(infos => setPurchaseList(infos.buying_bidding));
   }, []);
 
+  const makeChartData = () => {
+    for (let i = 0; i < 7; i++) {
+      weekChart.push(chartDataWeek[i]);
+    }
+
+    for (let i = 0; i < 30; i++) {
+      monthChart.push(chartDataMonth[i]);
+    }
+  };
+
+  makeChartData();
+
   return (
     <Main>
       <ProductArea>
@@ -60,9 +75,9 @@ export default function Detail() {
             name="chart"
           >
             {chartChange === 'chart1' ? (
-              <DealChart chartData={chartDataWeek} />
+              <DealChart chartData={weekChart} />
             ) : (
-              <DealChart chartData={chartDataMonth} />
+              <DealChart chartData={monthChart} />
             )}
           </DealInfo>
 

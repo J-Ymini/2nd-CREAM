@@ -18,7 +18,6 @@ export default function DealInfo({
 
   useEffect(() => {
     fetch(`${API_URLS.DETAIL}/${routeMatchID}/order`)
-      // fetch('/data/recentDealData.json')
       .then(res => res.json())
       .then(infos => setChartList(infos.order_list));
   }, []);
@@ -81,7 +80,7 @@ export default function DealInfo({
                     <td className="tableData textAlign">{`${Math.floor(
                       infos.price
                     ).toLocaleString()}원`}</td>
-                    <td className="tableData textAlign">{infos.quantity}</td>
+                    <td className="tableData textAlign">1</td>
                   </tr>
                 );
               }

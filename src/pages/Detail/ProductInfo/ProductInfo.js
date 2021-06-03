@@ -18,14 +18,12 @@ export default function ProductInfo() {
 
   useEffect(() => {
     fetch(`${API_URLS.DETAIL}/${routeMatchID}`)
-      // fetch('/data/detailMockData.json')
       .then(res => res.json())
       .then(productInfos => {
         setProductInfos(productInfos['product_information']);
       });
 
     fetch(`${API_URLS.DETAIL}/${routeMatchID}/order`)
-      // fetch('/data/recentDealData.json')
       .then(res => res.json())
       .then(price => setPercentage(price.order_list));
   }, []);

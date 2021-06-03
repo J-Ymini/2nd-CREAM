@@ -28,14 +28,12 @@ export default function BidHistoryModal({ on, onSet }) {
 
   useEffect(() => {
     fetch(`${API_URLS.DETAIL}/${routeMatchID}`)
-      // fetch('/data/detailMockData.json')
       .then(res => res.json())
       .then(productInfo => setProductInfo(productInfo['product_information']));
   }, []);
 
   const getData = () => {
     fetch(`${API_URLS.DETAIL}/${routeMatchID}/sellbidding?${currentFetchURL}`)
-      // fetch('/data/bidHistoryModal.json')
       .then(res => res.json())
       .then(infos => {
         const result = infos.selling_bidding.slice(0, itemNum);
@@ -43,7 +41,6 @@ export default function BidHistoryModal({ on, onSet }) {
       });
 
     fetch(`${API_URLS.DETAIL}/${routeMatchID}/buybidding?${currentFetchURL}`)
-      // fetch('/data/bidHistoryModal2.json')
       .then(res => res.json())
       .then(infos => {
         const result = infos.buying_bidding.slice(0, itemNum);

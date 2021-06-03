@@ -10,7 +10,6 @@ export default function ProductImg() {
 
   useEffect(() => {
     fetch(`${API_URLS.DETAIL}/${routeMatchID}`)
-      // fetch('/data/detailMockData.json')
       .then(res => res.json())
       .then(images =>
         setProductInfo([

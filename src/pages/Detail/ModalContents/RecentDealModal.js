@@ -19,7 +19,6 @@ export default function RecentDealModal({ on, onSet }) {
 
   useEffect(() => {
     fetch(`${API_URLS.DETAIL}/${routeMatchID}`)
-      // fetch('/data/detailMockData.json')
       .then(res => res.json())
       .then(productInfo => setProductInfo(productInfo['product_information']));
   }, []);
@@ -30,7 +29,6 @@ export default function RecentDealModal({ on, onSet }) {
 
   const getData = () => {
     fetch(`${API_URLS.DETAIL}/${routeMatchID}/order`)
-      // fetch('/data/recentDealData.json')
       .then(res => res.json())
       .then(infos => {
         const result = infos.order_list.slice(0, itemNum);

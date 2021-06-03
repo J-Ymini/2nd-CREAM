@@ -9,7 +9,9 @@ export default function DealChart({ chartData }) {
     gradient.addColorStop(1, '#fff9f8');
 
     return {
-      labels: chartData.map(orderDate => orderDate.order_date),
+      labels:
+        chartData[0] !== undefined &&
+        chartData.map(orderDate => orderDate.order_date).reverse(),
 
       datasets: [
         {
@@ -21,7 +23,9 @@ export default function DealChart({ chartData }) {
           pointHoverBorderWidth: 2,
           tension: 0,
           spanGaps: true,
-          data: chartData.map(productPrice => productPrice.price),
+          data:
+            chartData[0] !== undefined &&
+            chartData.map(productPrice => productPrice.price).reverse(),
         },
       ],
     };
