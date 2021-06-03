@@ -76,7 +76,6 @@ const bannerBackgroundColors = [
 
 const MainTopBannerStyle = styled.div`
   position: relative;
-  margin-top: 90px;
   width: 100%;
   height: 480px;
 `;

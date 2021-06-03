@@ -1,18 +1,18 @@
-import React, { Component, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Nav = () => {
   return (
     <NavStyle>
-      <Link to="/">
+      <Link to="/products">
         <TitleLogo alt="main title logo" src="/images/nav_logo.png" />
       </Link>
       <NavSearchInput>
         <i class="fas fa-search"></i>
       </NavSearchInput>
       <NavLinkContainer>
-        {localStorage.getItem('Authorization') ? (
+        {localStorage.getItem('cream_token') ? (
           <>
             <Link to="/my">마이 페이지</Link>
             <Link to="/products">로그아웃</Link>
@@ -36,6 +36,8 @@ const NavStyle = styled.nav`
   height: 90px;
   padding: 0 16px;
   border-bottom: 1px solid #e8e8e8;
+  background-color: white;
+  z-index: 1;
 `;
 
 const TitleLogo = styled.img`

@@ -5,11 +5,13 @@ import Main from './pages/Main/Main';
 import Mypage from './pages/Mypage/Mypage';
 import Detail from './pages/Detail/Detail';
 import BuyPage from './pages/BuyPage/BuyPage';
+import Nav from './components/Nav';
 
 class Routes extends Component {
   render() {
     return (
       <Router>
+        <Nav />
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/login" component={Login} />

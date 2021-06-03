@@ -136,7 +136,6 @@ export default function Main() {
   };
   return (
     <MainStyle>
-      <Nav />
       <MainTopBanner />
       <ProductList>
         <ListTitle onClick={test}>SHOP</ListTitle>
