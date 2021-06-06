@@ -166,6 +166,7 @@ export default function BuyPage(props) {
                   <span>원</span>
                 </TotalBuyPrice>
               </TotalPrice>
+              <Decision onClick={deciseSell}>판매 입찰 결정</Decision>
             </>
           )}
           {sellImmediately && (
@@ -200,9 +201,9 @@ export default function BuyPage(props) {
                   <span>원</span>
                 </TotalBuyPrice>
               </TotalPrice>
+              <Decision onClick={deciseSell}>판매 결정</Decision>
             </>
           )}
-          <Decision onClick={deciseSell}>판매 결정</Decision>
         </ProductPriceInformation>
       </ProductInformation>
     </Container>

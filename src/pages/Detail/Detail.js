@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import Styled from 'styled-components';
 import ProductImg from './ProductImg/ProductImg';
-import ProductInfo from './ProductInfo/ProductInfo';
+import ProductInfo from './ProductInfo/ProductInfo2';
 import DealInfo from './DealInfo/DealInfo';
 import DealChart from './DealChart/DealChart';
 import Modal from '../../components/Modal/Modal';

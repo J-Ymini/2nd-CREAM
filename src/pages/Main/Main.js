@@ -6,32 +6,21 @@ import MainTopBanner from '../../pages/Main/MainTopBanner/Maintopbanner';
 import API_URLS from '../../config';
 
 export default function Main(props) {
+  const [SortListState, setSortListState] = useState(false);
+  // 백엔드에서 상품리스트 데이터를 받아와서 저장하는 배열 state
   const [productList, setproductList] = useState([]);
+  // 체크박스 체크시 해당 요소의 name 값을 받아서 저장하는 객체 state
   const [productfilters, setProductFilters] = useState({
     brand_id: [],
     collection_id: [],
     color: [],
     size: [],
   });
-  const [SortListState, setSortListState] = useState(false);
+  // 상품리스트의 3가지 정렬 방식을 위한 정수 state (0,1,2 3가지)
   const [SortTypeState, setSortTypeState] = useState(0);
 
-  useEffect(() => {
-    fetch(`${API_URLS.LIST_PAGE}`)
-      .then(result => result.json())
-      .then(ProductListData => {
-        const sortedProductList = sortProductList(
-          SortTypeState,
-          ProductListData.result
-        );
-        setproductList(sortedProductList);
-      });
-  }, []);
-
-  useEffect(() => {
-    fetchByFilterQuery();
-  }, [productfilters]);
-
+  // 첫 페이지 렌더시 받아오는 상품데이터를 현재 정렬기준(0번)에 맞게 정렬하여 상품리스트
+  // state에 담음
   useEffect(() => {
     fetch(`${API_URLS.LIST_PAGE}${props.location.search}`)
       .then(result => result.json())
@@ -42,6 +31,41 @@ export default function Main(props) {
         );
         setproductList(sortedProductList);
       });
+  }, []);
+
+  // 현재 productfilters state의 값이 바뀔 때 마다 productfilters 에 담긴 값으로
+  // 쿼리스트링을 생성하여 해당 주소로 fetch 하여 필터링된 상품리스트를
+  // 현재 정렬기준(0번)에 맞게 정렬하여 상품리스트 state에 담음
+
+  useEffect(() => {
+    if (Object.values(productfilters)[0].length > 0) {
+      const filterQuery = makeFilterQuery(productfilters);
+      fetch(`${API_URLS.LIST_PAGE}${filterQuery}`)
+        .then(result => result.json())
+        .then(ProductListData => {
+          const sortedProductList = sortProductList(
+            SortTypeState,
+            ProductListData.result
+          );
+          setproductList(sortedProductList);
+        });
+    }
+  }, [productfilters]);
+
+  // 만약 검색을 통해 상품리스트를 통해 페이지에 올경우 검색어에 대한 결과 상품 리스트를
+  // 현재 정렬기준(0번)에 맞게 정렬하여 상품리스트 state에 담음
+  useEffect(() => {
+    if (props.location.search) {
+      fetch(`${API_URLS.LIST_PAGE}${props.location.search}`)
+        .then(result => result.json())
+        .then(ProductListData => {
+          const sortedProductList = sortProductList(
+            SortTypeState,
+            ProductListData.result
+          );
+          setproductList(sortedProductList);
+        });
+    }
   }, [props.location.search]);
 
   const makeFilterQuery = productfilters => {
@@ -53,19 +77,6 @@ export default function Main(props) {
       }
     }
     return query.replace('&', '?');
-  };
-
-  const fetchByFilterQuery = () => {
-    const filterQuery = makeFilterQuery(productfilters);
-    fetch(`${API_URLS.LIST_PAGE}${filterQuery}`)
-      .then(result => result.json())
-      .then(ProductListData => {
-        const sortedProductList = sortProductList(
-          SortTypeState,
-          ProductListData.result
-        );
-        setproductList(sortedProductList);
-      });
   };
 
   const sortProductList = (type, productList) => {
@@ -142,14 +153,11 @@ export default function Main(props) {
     sortProductList(type, productList);
   };
 
-  const test = () => {
-    console.log(productList);
-  };
   return (
     <MainStyle>
       <MainTopBanner />
       <ProductList>
-        <ListTitle onClick={test}>SHOP</ListTitle>
+        <ListTitle>SHOP</ListTitle>
         <BrandList>
           {BRAND_LISTS.map(brandinfo => {
             return (

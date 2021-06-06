@@ -1,6 +1,5 @@
 import React from 'react';
 import Styled from 'styled-components';
-
 export default function Footer() {
   return (
     <FooterStyle>
@@ -36,31 +35,34 @@ export default function Footer() {
           </Links>
         </FooterLinks>
         <FooterFunny>
-          <img alt="image1" src="/images/banner1.png" />
-          <img alt="image2" src="/images/funny2.jpg" />
+          <div className="hello">
+            <img alt="image1" src="/images/banner1.png" />
+            <img alt="image2" src="/images/funny2.jpg" />
+          </div>
+          <div className="thank">Mento : 그저 갓 도현님, 연우님⭐️ </div>
+          <div className="mento">
+            <img alt="1" src="/images/mento1.png" />
+            <img alt="2" src="/images/mento2.png" />
+          </div>
         </FooterFunny>
       </div>
     </FooterStyle>
   );
 }
-
 const FooterStyle = Styled.section`
   width: 100%;
   margin: 100px auto;
   padding-bottom: 50px;
   border-bottom: 1px solid #e4e4e4;
-
   .footerBottom {
     ${props => props.theme.flexbox('row', 'space-between', 'center')};
   }
 `;
-
 const FooterBanner = Styled.div`
   ${props => props.theme.flexbox('row', 'space-between', 'center')}
   width: 100%;
   height: 300px;
 `;
-
 const Banner = Styled.div`
   position: relative;
   width: 50%;
@@ -68,16 +70,13 @@ const Banner = Styled.div`
   color: #e7e7e7;
   background-color: ${props =>
     props.first === 'first' ? '#565656' : '#3b3a3c'};
-  
   h1 {
     margin-bottom: 10px;
   }
-
   span {
     display: block;
     margin-bottom: 2px;
   }
-
   img {
     position: absolute;
     top: -1px;
@@ -86,35 +85,45 @@ const Banner = Styled.div`
     border-radius: 12px;
   }
 `;
-
 const FooterLinks = Styled.div`
   ${props => props.theme.flexbox('row', 'space-between', 'center')};
   width: 40%;
 `;
-
 const Links = Styled.ul`
   ${props => props.theme.flexbox('column', 'space-between', 'flex-start')}
   margin-left: 50px;
-
   h1 {
     margin-bottom: 20px;
     font-size: 15px;
   }
-
   li {
     margin-bottom: 15px;
     font-size: 15px;
     color: gray;
   }
 `;
-
 const FooterFunny = Styled.div`
-  ${props => props.theme.flexbox('row')}
-  width: 30%;
-
-  img {
-    width: 300px;
-    height: 200px;
-    margin-right: 10px;
+margin-left: 300px;
+  .hello {
+    ${props => props.theme.flexbox('row')}
+    width: 30%;
+    img {
+      width: 300px;
+      height: 200px;
+      margin-right: 10px;
+    }
+  }
+  .thank {
+      margin-top: 50px;
+      margin-left: -80px;
+      font-size: 30px;
+    }
+  .mento {
+    margin-left: -80px;
+    img {
+      margin-right: 40px;
+      width: 200px;
+      height: 200px;
+    }
   }
 `;
